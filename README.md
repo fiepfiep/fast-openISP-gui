@@ -31,18 +31,42 @@ Here is the running time in my Ryzen 7 1700 8-core 3.00GHz machine with the 1920
 > <sup>*</sup> CEH module is not included in the official openISP pipeline.
 
 
+# Desktop GUI
+
+This fork adds a Windows desktop GUI (PySide6), shipped as a single `fast-openISP.exe`:
+
+- open headerless `.raw`, single-channel Bayer `.tif`/`.tiff` and `.dng` files, or drag and drop them
+- enable/disable each ISP module (dependent modules are switched off automatically)
+- edit every parameter, with instant preview on a downscaled image in the background
+- before/after split view
+- export full-resolution PNG or JPEG
+- YAML configs checked with Pydantic; grey-world auto white balance
+
+Full documentation is in [`docs/`](docs/index.md) (`uv run mkdocs serve`).
+
 # Usage
 
-Clone this repo and run
+With [uv](https://docs.astral.sh/uv/) (installs Python 3.13 and all dependencies):
 
 ```
-python demo.py
+uv sync
+uv run fast-openisp-gui                                   # start the GUI
+uv run fast-openisp run raw/mikros110.tiff -c mikros110   # command line → raw/mikros110.png
 ```
 
-The ISP outputs will be saved to `./output` directory.
+From Python:
 
-The only required package for pipeline execution is `numpy`. `opencv-python` and `scikit-image` are required only for 
-data IO.
+```python
+from fast_openisp.config import bundled_configs
+from fast_openisp.io.loaders import load_tiff
+from fast_openisp.pipeline import Pipeline
+
+config = bundled_configs()["mikros110"]
+raw = load_tiff("raw/mikros110.tiff", bayer_pattern="bggr")
+image = Pipeline(config).execute(raw.bayer).image  # (H, W, 3) uint8 RGB
+```
+
+Build the Windows exe with `.\scripts\build_exe.ps1` (see [docs/building.md](docs/building.md)).
 
 # Algorithms
 
@@ -67,8 +91,10 @@ constant integer (128). In fast-openISP, we use the median value of the whole fr
 # Parameters
 
 Tunable parameters in fast-openISP are differently named from those in openISP, but they are all self-explained,
-and no doubt you can easily tell the counterparts in two repos. All parameters are managed in a yaml 
-in [`./configs`](./configs), one file per camera.
+and no doubt you can easily tell the counterparts in two repos. All parameters are managed in a yaml
+in [`src/fast_openisp/configs`](src/fast_openisp/configs), one file per camera. Gains and matrices are real
+numbers (e.g. `r_gain: 1.5`); see [docs/configuration.md](docs/configuration.md) and
+[docs/modules.md](docs/modules.md).
 
 # Demo
 
