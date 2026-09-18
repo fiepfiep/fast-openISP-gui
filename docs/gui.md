@@ -1,8 +1,6 @@
 # The GUI
 
-!!! info "Screenshots"
-    Screenshots of the main window, the split view and the export dialog will be added
-    here.
+![The main window with a 12-bit GRBG DNG loaded](assets/screenshot.png)
 
 The window has three areas:
 

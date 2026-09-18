@@ -1,60 +1,78 @@
-# Fast Open Image Signal Processor (fast-openISP)
+# fast-openISP GUI
 
-As told by its name, fast-openISP is a **faster** (and bugs-fixed) re-implementation of
-the [openISP](https://github.com/cruxopen/openISP) project.
+**A software image signal processor (ISP) with a desktop GUI for Windows.** Load a raw Bayer
+image, switch ISP blocks on and off, tune every parameter while watching a live preview,
+compare before and after, and export a PNG or JPEG.
 
-Compared to C-style code in the official openISP repo, fast-openISP uses pure matrix implementations based on Numpy, and
-increases processing speed **over 300 times**.
+[![Documentation](https://img.shields.io/badge/docs-fiepfiep.github.io-3f51b5)](https://fiepfiep.github.io/fast-openISP-gui/)
+[![Release](https://img.shields.io/github/v/release/fiepfiep/fast-openISP-gui)](https://github.com/fiepfiep/fast-openISP-gui/releases/latest)
+![Python](https://img.shields.io/badge/python-3.13%2B-blue)
+![Platform](https://img.shields.io/badge/platform-Windows-lightgrey)
+[![License](https://img.shields.io/badge/license-MIT-green)](#license)
 
-Here is the running time in my Ryzen 7 1700 8-core 3.00GHz machine with the 1920x1080 input Bayer array:
+![fast-openISP GUI processing a 12-bit GRBG DNG of a color checker](docs/assets/screenshot.png)
 
-|Module             |openISP |fast-openISP|
-|:-----------------:|:------:|:----------:|
-|DPC                |20.57s  |0.29s       |
-|BLC                |11.75s  |0.02s       |
-|AAF                |16.87s  |0.08s       |
-|AWB                |7.54s   |0.02s       |
-|CNF                |73.99s  |0.25s       |
-|CFA                |40.71s  |0.20s       |
-|CCM                |56.85s  |0.06s       |
-|GAC                |25.71s  |0.07s       |
-|CSC                |60.32s  |0.06s       |
-|NLM                |1600.95s|5.37s       |
-|BNF                |801.24s |0.75s       |
-|CEH<sup>*</sup>    |-       |0.14s       |
-|EEH                |68.60s  |0.24s       |
-|FCS                |25.07s  |0.08s       |
-|HSC                |56.34s  |0.07s       |
-|BBC                |27.92s  |0.03s       |
-|End-to-end pipeline|2894.41s|7.82s       |
+📖 **Documentation:** <https://fiepfiep.github.io/fast-openISP-gui/>
 
-> <sup>*</sup> CEH module is not included in the official openISP pipeline.
+---
 
+## Features
 
-# Desktop GUI
+- **Raw inputs**: headerless `.raw`, single-channel Bayer `.tif`/`.tiff` (bit depth worked
+  out from the data), and `.dng` (Bayer pattern, black level and white balance read from the
+  file). Open them from the menu or **drag and drop** them onto the window.
+- **17 ISP blocks**, from dead pixel correction to brightness/contrast. Each can be switched
+  on or off; blocks that depend on another one are switched off automatically.
+- **Every parameter can be edited**, with controls built from the configuration schema,
+  including a 3 × 4 colour matrix editor.
+- **Live preview**: processing runs in the background on a downscaled copy of the image that
+  keeps its Bayer layout.
+- **Before/after** comparison with a draggable split view (F2 / F3 / F4, or hold **B**).
+- **Export** full-resolution PNG or JPEG, optionally with the YAML config alongside.
+- **Grey-world auto white balance** for uncalibrated sensors, with *Freeze as manual*.
+- **YAML configurations checked with Pydantic**: typos and out-of-range values are reported
+  by field name. Configs in the original fast-openISP format are converted automatically.
+- **Single-file `fast-openISP.exe`**: Python doesn't need to be installed. There is also a
+  CLI and a typed Python API.
 
-This fork adds a Windows desktop GUI (PySide6), shipped as a single `fast-openISP.exe`:
+## Download
 
-- open headerless `.raw`, single-channel Bayer `.tif`/`.tiff` and `.dng` files, or drag and drop them
-- enable/disable each ISP module (dependent modules are switched off automatically)
-- edit every parameter, with instant preview on a downscaled image in the background
-- before/after split view
-- export full-resolution PNG or JPEG
-- YAML configs checked with Pydantic; grey-world auto white balance
+Get `fast-openISP-<version>-win64.zip` from the
+[latest release](https://github.com/fiepfiep/fast-openISP-gui/releases/latest), unzip it and
+run `fast-openISP.exe`. The zip includes sample configs and raw images:
 
-Documentation: https://fiepfiep.github.io/fast-openISP-gui/ (source in [`docs/`](docs/index.md), preview with `uv run mkdocs serve`).
+| Sample | Format | Config |
+|---|---|---|
+| `raw/mikros110.tiff` | 1090 × 1096, 10-bit BGGR TIFF | `mikros110` (default) |
+| `raw/test.RAW` | 1920 × 1080, 10-bit RGGB headerless raw | `test` |
+| `raw/mira220_rgb.dng` | 1600 × 1400, 12-bit GRBG DNG | `mira220_rgb` |
 
-# Usage
+> The exe is not code-signed, so Windows SmartScreen may warn; choose *More info → Run
+> anyway*. The first start takes a few seconds while the exe unpacks itself.
 
-With [uv](https://docs.astral.sh/uv/) (installs Python 3.13 and all dependencies):
+See [Getting started](https://fiepfiep.github.io/fast-openISP-gui/getting-started/) for a
+walkthrough.
 
-```
+## Run from source
+
+Requires [uv](https://docs.astral.sh/uv/), which installs Python 3.13 and all dependencies.
+
+```bash
+git clone https://github.com/fiepfiep/fast-openISP-gui.git
+cd fast-openISP-gui
 uv sync
-uv run fast-openisp-gui                                   # start the GUI
-uv run fast-openisp run raw/mikros110.tiff -c mikros110   # command line → raw/mikros110.png
+uv run fast-openisp-gui
 ```
 
-From Python:
+Command line:
+
+```bash
+uv run fast-openisp run raw/mikros110.tiff -c mikros110 -o mikros110.png
+uv run fast-openisp configs     # list bundled configs
+uv run fast-openisp schema      # JSON Schema for editor autocompletion
+```
+
+Python:
 
 ```python
 from fast_openisp.config import bundled_configs
@@ -63,88 +81,94 @@ from fast_openisp.pipeline import Pipeline
 
 config = bundled_configs()["mikros110"]
 raw = load_tiff("raw/mikros110.tiff", bayer_pattern="bggr")
-image = Pipeline(config).execute(raw.bayer).image  # (H, W, 3) uint8 RGB
+result = Pipeline(config).execute(raw.bayer)
+result.image        # (H, W, 3) uint8 RGB
+result.awb_gains    # white-balance gains that were applied
+result.timings      # seconds per module
 ```
 
-Build the Windows exe with `.\scripts\build_exe.ps1` (see [docs/building.md](docs/building.md)).
+## The ISP pipeline
 
-# Algorithms
+```
+Bayer ─► DPC ─► BLC ─► AAF ─► AWB ─► CNF ─► CFA ─► CCM ─► GAC ─► CSC ─► NLM ─► BNF ─► CEH ─► EEH ─► FCS ─► HSC ─► BCC ─► SCL
+         └──────────── Bayer domain ────────────┘  └──── RGB domain ────┘  └───────────────── YCbCr domain ─────────────────┘
+```
 
-All modules in fast-openISP
-reproduce [processing algorithms](https://github.com/cruxopen/openISP/blob/master/docs/Image%20Signal%20Processor.pdf)
-in openISP, except for EEH and BCC modules. In addition, a CEH (contrast enhancement) module with [CLAHE](https://en.wikipedia.org/wiki/Adaptive_histogram_equalization#Contrast_Limited_AHE) is 
-added into the fast-openISP pipeline.
+| Block | Purpose | Block | Purpose |
+|---|---|---|---|
+| **DPC** | Dead/hot pixel correction | **CSC** | RGB → YCbCr (BT.601) |
+| **BLC** | Black level subtraction | **NLM** | Non-local means denoising |
+| **AAF** | Anti-aliasing filter | **BNF** | Bilateral denoising |
+| **AWB** | White balance (manual / grey world) | **CEH** | Local contrast (CLAHE) |
+| **CNF** | Chroma noise filter | **EEH** | Edge enhancement |
+| **CFA** | Demosaicing (Malvar / bilinear) | **FCS** | False color suppression |
+| **CCM** | Color correction matrix | **HSC** | Hue / saturation |
+| **GAC** | Gain + gamma curve | **BCC** | Brightness / contrast |
+| | | **SCL** | Scaler |
 
-### EEH (edge enhancement)
+Each block is explained with its equations in
+[**ISP blocks explained**](https://fiepfiep.github.io/fast-openISP-gui/isp-blocks/). Its
+parameters are listed in the
+[module reference](https://fiepfiep.github.io/fast-openISP-gui/modules/).
 
-The official openISP uses
-an [asymmetric kernel](https://github.com/cruxopen/openISP/blob/49de48282e66bdb283779394a23c9c0d6ba238ff/isp_pipeline.py#L150-L164)
-to extract edge map. In fast-openISP, however, we use the subtraction between the original and the gaussian filtered
-Y-channel as the edge estimation, which reduces the artifact when the enhancement gain is large.
+## Performance
 
-### BCC (brightness & contrast control)
+The ISP algorithms are fast-openISP's pure-NumPy implementations, which run **over 300 times
+faster** than the original openISP. Measurements by the fast-openISP author on a
+1920 × 1080 Bayer array (Ryzen 7 1700):
 
-The official openISP enhances the image contrast by pixel-wise enlarging the difference between pixel values and a
-constant integer (128). In fast-openISP, we use the median value of the whole frame instead of a constant.
+| | openISP | fast-openISP |
+|---|---:|---:|
+| NLM | 1600.95 s | 5.37 s |
+| BNF | 801.24 s | 0.75 s |
+| **End-to-end pipeline** | **2894.41 s** | **7.82 s** |
 
+The GUI previews a downscaled image (longest edge 1024 px by default), so edits typically
+show up within a fraction of a second. Export always runs at full resolution.
 
-# Parameters
+## Documentation
 
-Tunable parameters in fast-openISP are differently named from those in openISP, but they are all self-explained,
-and no doubt you can easily tell the counterparts in two repos. All parameters are managed in a yaml
-in [`src/fast_openisp/configs`](src/fast_openisp/configs), one file per camera. Gains and matrices are real
-numbers (e.g. `r_gain: 1.5`); see [docs/configuration.md](docs/configuration.md) and
-[docs/modules.md](docs/modules.md).
+| | |
+|---|---|
+| [Getting started](https://fiepfiep.github.io/fast-openISP-gui/getting-started/) | Install, run, first image |
+| [The GUI](https://fiepfiep.github.io/fast-openISP-gui/gui/) | Panels, dependencies, preview, compare, export |
+| [ISP blocks explained](https://fiepfiep.github.io/fast-openISP-gui/isp-blocks/) | What each block does, with equations |
+| [Input formats](https://fiepfiep.github.io/fast-openISP-gui/inputs/) | `.raw`, `.tif`, `.dng` details |
+| [Configuration files](https://fiepfiep.github.io/fast-openISP-gui/configuration/) | YAML format and validation |
+| [Command line](https://fiepfiep.github.io/fast-openISP-gui/cli/) | `fast-openisp run / configs / schema` |
+| [Developer guide](https://fiepfiep.github.io/fast-openISP-gui/development/) | Layout, tooling, adding a module |
+| [Building the exe](https://fiepfiep.github.io/fast-openISP-gui/building/) | PyInstaller build and releases |
+| [Release notes](https://fiepfiep.github.io/fast-openISP-gui/release-notes/) | What's new |
 
-# Demo
+## Development
 
-|Bayer Input|
-|:-------------------------:|
-|<img src='assets/dpc.jpg' width='580'>| 
+```bash
+uv run ruff format && uv run ruff check   # format + lint
+uv run ty check                           # type check
+uv run pytest tests/test_regression.py    # bit-exact regression tests
+uv run mkdocs serve                       # docs at http://127.0.0.1:8000
+.\scripts\build_exe.ps1                   # build dist\fast-openISP.exe (PowerShell)
+```
 
+The regression tests check that the refactored pipeline reproduces the original
+fast-openISP output **bit for bit**.
 
-|CFA Interpolation|
-|:-------------------------:|
-|<img src='assets/cfa.jpg' width='580'>| 
+## Credits
 
+Author of the GUI, packaging, typed configuration, grey-world AWB and TIFF/DNG support:
+**Philippe Baetens**.
 
-|Color Correction|
-|:-------------------------:|
-|<img src='assets/ccm.jpg' width='580'>| 
+This project builds on:
 
+- [**fast-openISP**](https://github.com/QiuJueqin/fast-openISP) by Qiu Jueqin: the NumPy ISP
+  algorithms (MIT license).
+- [**openISP**](https://github.com/cruxopen/openISP): the original open-source ISP pipeline
+  and its design document.
 
-|Gamma Correction|
-|:-------------------------:|
-|<img src='assets/gac.jpg' width='580'>| 
+The GUI uses [Qt for Python (PySide6)](https://doc.qt.io/qtforpython/) (LGPLv3).
 
+## License
 
-|Non-local Means & Bilateral Filter|
-|:-------------------------:|
-|<img src='assets/bnf.jpg' width='580'>| 
-
-
-|Contrast Enhancement|
-|:-------------------------:|
-|<img src='assets/ceh.jpg' width='580'>| 
-
-
-|Edge Enhancement|
-|:-------------------------:|
-|<img src='assets/eeh.jpg' width='580'>| 
-
-
-|Hue & Saturation Control|
-|:-------------------------:|
-|<img src='assets/hsc.jpg' width='580'>| 
-
-
-|Brightness & Contrast Control|
-|:-------------------------:|
-|<img src='assets/bcc.jpg' width='580'>| 
-
-
-# License
-
-Copyright 2021 Qiu Jueqin.
-
-Licensed under [MIT](http://opensource.org/licenses/MIT).
+MIT. The original fast-openISP code is Copyright 2021 Qiu Jueqin, licensed under
+[MIT](http://opensource.org/licenses/MIT). The GUI and later changes are Copyright 2026
+Philippe Baetens, under the same license.
