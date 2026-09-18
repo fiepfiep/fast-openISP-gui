@@ -62,7 +62,7 @@ release. The zip contains:
 | `fast-openISP.exe` | The application |
 | `README.txt` | Quick start |
 | `configs/*.yaml` | The bundled configurations |
-| `raw/mikros110.tiff`, `raw/test.RAW` | Sample images |
+| `raw/mikros110.tiff`, `raw/test.RAW`, `raw/mira220_rgb.dng` | Sample images |
 
 To build the same zip locally, run `.\scripts\build_exe.ps1` and then
 `.\scripts\package_release.ps1`; the zip is written to `dist\`. Update `__version__` in

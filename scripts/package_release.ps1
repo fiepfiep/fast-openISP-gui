@@ -19,7 +19,7 @@ New-Item -ItemType Directory -Force "$stage\configs", "$stage\raw" | Out-Null
 Copy-Item $exe $stage
 Copy-Item "src\fast_openisp\configs\*.yaml" "$stage\configs"
 # Sample images in supported formats
-Copy-Item "raw\mikros110.tiff", "raw\test.RAW" "$stage\raw"
+Copy-Item "raw\mikros110.tiff", "raw\test.RAW", "raw\mira220_rgb.dng" "$stage\raw"
 
 $readme = @"
 fast-openISP $version
@@ -39,14 +39,17 @@ Quick start
    (1090 x 1096, 10 bit, BGGR). The bundled 'mikros110' config is active by default.
 3. For raw\test.RAW, first choose Config > Bundled configs > test
    (1920 x 1080, 10 bit, RGGB).
-4. Toggle modules and edit parameters in the left panel; press F4 for the
+4. Drop raw\mira220_rgb.dng: size, pattern, black level and white balance
+   come from the DNG itself (no dialog).
+5. Toggle modules and edit parameters in the left panel; press F4 for the
    before/after split view; click Export... to save a full-resolution PNG/JPEG.
 
 Contents
 --------
 fast-openISP.exe   the application
 configs\           YAML configurations (also built into the exe; load via Config > Load YAML)
-raw\               sample images: mikros110.tiff (10-bit BGGR), test.RAW (10-bit RGGB)
+raw\               sample images: mikros110.tiff (10-bit BGGR), test.RAW (10-bit RGGB),
+                   mira220_rgb.dng (12-bit GRBG DNG)
 
 Windows SmartScreen may warn because the exe is not code-signed:
 choose "More info" > "Run anyway".
