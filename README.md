@@ -42,7 +42,7 @@ This fork adds a Windows desktop GUI (PySide6), shipped as a single `fast-openIS
 - export full-resolution PNG or JPEG
 - YAML configs checked with Pydantic; grey-world auto white balance
 
-Full documentation is in [`docs/`](docs/index.md) (`uv run mkdocs serve`).
+Documentation: https://fiepfiep.github.io/fast-openISP-gui/ (source in [`docs/`](docs/index.md), preview with `uv run mkdocs serve`).
 
 # Usage
 

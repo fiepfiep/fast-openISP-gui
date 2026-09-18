@@ -2,7 +2,8 @@ site_name: fast-openISP
 site_description: A fast software image signal processor with a desktop GUI
 site_author: Philippe Baetens
 copyright: "Philippe Baetens · based on fast-openISP by Qiu Jueqin (MIT) and openISP"
-repo_url: https://github.com/QiuJueqin/fast-openISP
+site_url: https://fiepfiep.github.io/fast-openISP-gui/
+repo_url: https://github.com/fiepfiep/fast-openISP-gui
 edit_uri: ""
 
 theme:
@@ -29,11 +30,12 @@ theme:
 nav:
   - Home: index.md
   - Getting started: getting-started.md
+  - ISP blocks explained: isp-blocks.md
   - User guide:
       - The GUI: gui.md
       - Input formats: inputs.md
       - Configuration files: configuration.md
-      - ISP modules: modules.md
+      - Module reference: modules.md
       - Command line: cli.md
   - Development:
       - Developer guide: development.md
@@ -54,6 +56,12 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.superfences
   - pymdownx.keys
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 plugins:
   - search

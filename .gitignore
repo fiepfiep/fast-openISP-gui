@@ -5,7 +5,8 @@
 .idea/
 tmp/
 temp/
-TODO*/site/
+TODO*
+/site/
 __pycache__/
 .venv/
 /dist/

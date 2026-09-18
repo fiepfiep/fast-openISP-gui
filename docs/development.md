@@ -61,11 +61,11 @@ Two GitHub Actions workflows live in `.github/workflows/`:
 
 To turn on GitHub Pages (one-time setup):
 
-1. Push the repository to your own GitHub repository.
+1. Push to the GitHub remote (`git push mygithub master`).
 2. In the repository, go to **Settings → Pages** and set **Source** to **GitHub Actions**.
 3. Push to `master`, or run the *docs* workflow by hand from the **Actions** tab.
-4. The site is published at `https://<user>.github.io/<repository>/`. Set `site_url` and
-   `repo_url` in `mkdocs.yml` to match.
+4. The site is published at <https://fiepfiep.github.io/fast-openISP-gui/> (`site_url` in
+   `mkdocs.yml`).
 
 ## Tests
 

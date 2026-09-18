@@ -34,7 +34,7 @@ Bayer ─► DPC ─► BLC ─► AAF ─► AWB ─► CNF ─► CFA ─► C
         └──────────── Bayer domain ────────────┘      └ RGB domain ┘      └──────────────── YCbCr domain ─────────────────┘
 ```
 
-See [ISP modules](modules.md) for what each stage does and its parameters.
+See [ISP blocks explained](isp-blocks.md) for how each stage works, and the [module reference](modules.md) for its parameters.
 
 ## Credits
 

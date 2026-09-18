@@ -26,11 +26,11 @@ You need [uv](https://docs.astral.sh/uv/). uv installs Python 3.13 and all depen
 for you.
 
 ```bash
-git clone https://github.com/QiuJueqin/fast-openISP.git
+git clone https://github.com/fiepfiep/fast-openISP-gui.git
 ```
 
 ```bash
-cd fast-openISP
+cd fast-openISP-gui
 ```
 
 ```bash
