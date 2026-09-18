@@ -1,5 +1,8 @@
 # Build the Windows exe and publish a GitHub release when a version tag is pushed.
 #   git tag v0.2.0 && git push mygithub v0.2.0
+# Release notes come from the matching "## v<version>" section of docs/release-notes.md.
+# Re-running for an existing tag (Actions → release → Run workflow, pick the tag) updates
+# that release's notes and assets.
 name: release
 
 on:
@@ -22,18 +25,20 @@ jobs:
       - name: Package zip
         shell: pwsh
         run: .\scripts\package_release.ps1
+      - name: Release notes and checksum
+        shell: pwsh
+        run: |
+          uv run python scripts/release_notes.py "${{ github.ref_name }}" > dist/RELEASE_NOTES.md
+          if ($LASTEXITCODE -ne 0) { throw "No release notes for ${{ github.ref_name }}" }
+          Get-ChildItem dist/fast-openISP-*-win64.zip | ForEach-Object {
+            $hash = (Get-FileHash $_.FullName -Algorithm SHA256).Hash.ToLower()
+            "$hash  $($_.Name)" | Out-File -Encoding ascii "$($_.FullName).sha256"
+          }
       - uses: softprops/action-gh-release@v2
         with:
-          files: dist/fast-openISP-*-win64.zip
+          name: fast-openISP GUI ${{ github.ref_name }}
+          body_path: dist/RELEASE_NOTES.md
           generate_release_notes: true
-          body: |
-            Windows build of the fast-openISP GUI.
-
-            **Download** `fast-openISP-<version>-win64.zip`, unzip, and run `fast-openISP.exe` (no Python needed).
-            The zip contains the exe, the bundled YAML configs and sample raw images
-            (`mikros110.tiff`, 10-bit BGGR; `test.RAW`, 10-bit RGGB; `mira220_rgb.dng`, 12-bit GRBG).
-
-            Documentation: https://fiepfiep.github.io/fast-openISP-gui/
-
-            Author: Philippe Baetens. Based on [fast-openISP](https://github.com/QiuJueqin/fast-openISP)
-            by Qiu Jueqin (MIT) and [openISP](https://github.com/cruxopen/openISP).
+          files: |
+            dist/fast-openISP-*-win64.zip
+            dist/fast-openISP-*-win64.zip.sha256

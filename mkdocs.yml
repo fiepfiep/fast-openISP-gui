@@ -41,6 +41,7 @@ nav:
       - Developer guide: development.md
       - Building the Windows exe: building.md
       - API reference: api.md
+  - Release notes: release-notes.md
 
 hooks:
   - docs/hooks.py
