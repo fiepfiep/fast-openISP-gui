@@ -43,3 +43,28 @@ The result is `dist\fast-openISP.exe`.
 | `ModuleNotFoundError` at startup | Add the module to `hiddenimports` in `fast_openisp.spec`. |
 | Missing Qt plugin (for example image formats) | Remove it from the exclusion list in the spec. |
 | Check the exe works | `dist\fast-openISP.exe --self-test`; exit code 0 means it passed. |
+
+## Releases
+
+A GitHub release is created automatically when a version tag is pushed:
+
+```bash
+git tag v0.2.0
+git push mygithub v0.2.0
+```
+
+The `release` workflow (`.github/workflows/release.yml`) builds the exe on Windows, runs
+`scripts/package_release.ps1`, and attaches `fast-openISP-<version>-win64.zip` to the
+release. The zip contains:
+
+| Path | Content |
+|---|---|
+| `fast-openISP.exe` | The application |
+| `README.txt` | Quick start |
+| `configs/*.yaml` | The bundled configurations |
+| `raw/mikros110.tiff`, `raw/test.RAW` | Sample images |
+
+To build the same zip locally, run `.\scripts\build_exe.ps1` and then
+`.\scripts\package_release.ps1`; the zip is written to `dist\`. Update `__version__` in
+`src/fast_openisp/__init__.py` (and `version` in `pyproject.toml`) before tagging a new
+version.
