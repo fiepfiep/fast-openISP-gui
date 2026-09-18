@@ -1,0 +1,1277 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A fast software image signal processor with a desktop GUI">
+      
+      
+      
+      
+        <link rel="prev" href="../getting-started/">
+      
+      
+        <link rel="next" href="../inputs/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>The GUI - fast-openISP</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#the-gui" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="fast-openISP" class="md-header__button md-logo" aria-label="fast-openISP" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            fast-openISP
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              The GUI
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/QiuJueqin/fast-openISP" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="fast-openISP" class="md-nav__button md-logo" aria-label="fast-openISP" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    fast-openISP
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/QiuJueqin/fast-openISP" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The GUI
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The GUI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#opening-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Opening images
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sensor-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sensor settings
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#turning-modules-on-and-off" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Turning modules on and off
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#editing-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Editing parameters
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Editing parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#white-balance-awb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        White balance (AWB)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#color-correction-matrix-ccm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Color correction matrix (CCM)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preview-and-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Preview and performance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#beforeafter-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before/after comparison
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navigating-the-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Navigating the image
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configurations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configurations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exporting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exporting
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../inputs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Input formats
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration files
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ISP modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command line
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Development
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Developer guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../building/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Building the Windows exe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#opening-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Opening images
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sensor-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sensor settings
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#turning-modules-on-and-off" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Turning modules on and off
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#editing-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Editing parameters
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Editing parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#white-balance-awb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        White balance (AWB)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#color-correction-matrix-ccm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Color correction matrix (CCM)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preview-and-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Preview and performance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#beforeafter-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before/after comparison
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navigating-the-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Navigating the image
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configurations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configurations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exporting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exporting
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="the-gui">The GUI<a class="headerlink" href="#the-gui" title="Permanent link">&para;</a></h1>
+<div class="admonition info">
+<p class="admonition-title">Screenshots</p>
+<p>Screenshots of the main window, the split view and the export dialog will be added
+here.</p>
+</div>
+<p>The window has three areas:</p>
+<ul>
+<li><strong>ISP modules</strong> (left): sensor settings, then every ISP module in pipeline order.</li>
+<li><strong>Image view</strong> (centre): the processed image, the unprocessed input, or both side by side.</li>
+<li><strong>Status bar</strong> (bottom): pixel under the cursor, processing progress, image information,
+  processing time, zoom level and the <strong>Export…</strong> button.</li>
+</ul>
+<h2 id="opening-images">Opening images<a class="headerlink" href="#opening-images" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Drag and drop a file onto the window, use <strong>File → Open image…</strong> (<span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-o">O</kbd></span>), or pick
+  one from <strong>File → Open recent</strong>.</li>
+<li>Supported: <code>.raw</code> (headerless), <code>.tif</code>/<code>.tiff</code> (single-channel Bayer) and <code>.dng</code>. See
+  <a href="../inputs/">Input formats</a>.</li>
+<li>Dropping a <code>.yaml</code> file loads it as the active configuration.</li>
+<li>If you drop several files, only the first supported one is opened.</li>
+</ul>
+<p>For <code>.raw</code> and <code>.tif</code> files an <strong>import dialog</strong> asks you to confirm the sensor layout:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th><code>.raw</code></th>
+<th><code>.tif</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Width / height</td>
+<td>Editable, pre-filled from the active config</td>
+<td>Read from the file</td>
+</tr>
+<tr>
+<td>Bit depth</td>
+<td>Pre-filled from the active config</td>
+<td>Worked out from the pixel values</td>
+</tr>
+<tr>
+<td>Bayer pattern</td>
+<td>Pre-filled from the active config</td>
+<td>Pre-filled from the active config</td>
+</tr>
+<tr>
+<td>Byte order</td>
+<td>Editable</td>
+<td>–</td>
+</tr>
+</tbody>
+</table>
+<p>For <code>.raw</code> files the dialog checks that width × height × 2 bytes matches the file size, and
+lists common resolutions that fit. Tick <strong>Don't ask again…</strong> to reuse the answers for files
+of the same size. <strong>File → Forget remembered import settings</strong> clears them.</p>
+<p>DNG files need no dialog: size, Bayer pattern, bit depth and black levels come from the file.
+When <strong>Config → Use as-shot white balance for DNG</strong> is on, the camera's white balance is
+copied into AWB as manual gains.</p>
+<h2 id="sensor-settings">Sensor settings<a class="headerlink" href="#sensor-settings" title="Permanent link">&para;</a></h2>
+<p>The <strong>Sensor</strong> box at the top of the panel shows the image size and lets you change the
+<strong>bit depth</strong> and <strong>Bayer pattern</strong> at any time, for example when the colors come out
+swapped because the pattern was wrong.</p>
+<h2 id="turning-modules-on-and-off">Turning modules on and off<a class="headerlink" href="#turning-modules-on-and-off" title="Permanent link">&para;</a></h2>
+<p>Each module row has a checkbox. Unticking it removes the module from the pipeline and the
+preview updates.</p>
+<p>Some modules need another module to run first. When you turn off a module, every module
+that depends on it is switched off and greyed out. Hover over the checkbox to see why, for
+example <em>Requires CSC (disabled)</em>. When you turn the module back on, the dependent modules
+go back to how you had them.</p>
+<table>
+<thead>
+<tr>
+<th>Module</th>
+<th>Requires</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CCM, GAC, SCL</td>
+<td>CFA</td>
+</tr>
+<tr>
+<td>CSC</td>
+<td>GAC</td>
+</tr>
+<tr>
+<td>NLM, BNF, CEH, EEH, HSC, BCC</td>
+<td>CSC</td>
+</tr>
+<tr>
+<td>FCS</td>
+<td>CSC and EEH</td>
+</tr>
+</tbody>
+</table>
+<p>With CFA off, the Bayer data is shown as a greyscale image.</p>
+<h2 id="editing-parameters">Editing parameters<a class="headerlink" href="#editing-parameters" title="Permanent link">&para;</a></h2>
+<p>Click the arrow on a module row to show its parameters, or use <strong>Expand all</strong>. Each
+parameter has a control that matches its type (number box, drop-down list, checkbox or
+matrix grid) and is limited to the valid range. Hover over a label for a description.</p>
+<ul>
+<li>Every change updates the preview after a short pause (250 ms).</li>
+<li>A value that fails a check spanning several fields (for example FCS <code>delta_min ≥
+  delta_max</code>) is shown in red below the parameters and is not applied.</li>
+<li>The <strong>↺</strong> button resets one module to the loaded configuration.</li>
+<li>The title bar shows <code>*</code> when the configuration has unsaved changes.</li>
+</ul>
+<h3 id="white-balance-awb">White balance (AWB)<a class="headerlink" href="#white-balance-awb" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>manual</strong>: the R, Gr, Gb and B gains are applied as entered.</li>
+<li><strong>grey world</strong>: the gains are estimated from each image so that the average red and blue
+  match the average green. Nearly saturated pixels are ignored. The estimated gains are shown
+  below the parameters. <strong>Freeze as manual</strong> copies them into manual mode, which is useful
+  once you have a good reference image.</li>
+</ul>
+<p>The chroma noise filter (CNF) automatically uses the gains that AWB applied.</p>
+<h3 id="color-correction-matrix-ccm">Color correction matrix (CCM)<a class="headerlink" href="#color-correction-matrix-ccm" title="Permanent link">&para;</a></h3>
+<p>A 3 × 4 grid: each row is an output channel, the first three columns are the input R, G, B
+weights and the last column is an offset. The <strong>Σ</strong> column shows each row's sum, in orange
+when it is not 1.0 (a row sum of 1.0 keeps neutral greys neutral). <strong>Reset to identity</strong>
+restores the identity matrix.</p>
+<h2 id="preview-and-performance">Preview and performance<a class="headerlink" href="#preview-and-performance" title="Permanent link">&para;</a></h2>
+<p>For speed, the preview is processed at reduced size. The image is shrunk by a whole-number
+factor so its longest edge is at most <strong>1024 px</strong> (change this in <strong>View → Preview size…</strong>).
+Shrinking keeps the Bayer layout, so every module runs on real mosaic data. The status bar
+shows the factor, for example <em>preview 1:2</em>.</p>
+<div class="admonition note">
+<p class="admonition-title">Spatial filters at preview scale</p>
+<p>Filters that work on a pixel neighbourhood (NLM, BNF, EEH, DPC, AAF) cover a larger area
+of the scene at preview scale, so their effect looks stronger in the preview than in the
+export. Turn on <strong>View → Full-resolution preview</strong> to see the exact result (slower).</p>
+</div>
+<p>Processing runs in the background, so the window stays responsive. If you change something
+while a run is in progress, that run is cancelled and a new one starts.</p>
+<h2 id="beforeafter-comparison">Before/after comparison<a class="headerlink" href="#beforeafter-comparison" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Shortcut</th>
+<th>Shows</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Processed</td>
+<td><span class="keys"><kbd class="key-f2">F2</kbd></span></td>
+<td>The ISP output</td>
+</tr>
+<tr>
+<td>Before</td>
+<td><span class="keys"><kbd class="key-f3">F3</kbd></span></td>
+<td>The unprocessed input</td>
+</tr>
+<tr>
+<td>Split</td>
+<td><span class="keys"><kbd class="key-f4">F4</kbd></span></td>
+<td>Before on the left, processed on the right; drag the white divider</td>
+</tr>
+</tbody>
+</table>
+<p>Hold <span class="keys"><kbd class="key-b">B</kbd></span> to show the <em>Before</em> image temporarily in any mode.</p>
+<p><em>Before</em> is a quick rendering of the input without ISP processing: linear scaling to 8 bit,
+simple demosaicing and a display gamma of 1/2.2. There is no black level, white balance or
+color correction.</p>
+<h2 id="navigating-the-image">Navigating the image<a class="headerlink" href="#navigating-the-image" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Mouse wheel: zoom around the cursor.</li>
+<li>Drag: pan.</li>
+<li><span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-0">0</kbd></span> fit to window, <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-1">1</kbd></span> 100 %, <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-plus">+</kbd></span> / <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-minus">-</kbd></span> zoom.</li>
+<li>The status bar shows the pixel position (in full-resolution coordinates) and the
+  processed RGB value under the cursor.</li>
+</ul>
+<h2 id="configurations">Configurations<a class="headerlink" href="#configurations" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Menu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Load a bundled configuration</td>
+<td><strong>Config → Bundled configs</strong></td>
+</tr>
+<tr>
+<td>Load a YAML file</td>
+<td><strong>Config → Load YAML…</strong> (<span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-l">L</kbd></span>) or drop it on the window</td>
+</tr>
+<tr>
+<td>Save</td>
+<td><strong>Config → Save YAML</strong> (<span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-s">S</kbd></span>), <strong>Save YAML as…</strong> (<span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-s">S</kbd></span>)</td>
+</tr>
+<tr>
+<td>Undo all edits</td>
+<td><strong>Config → Revert to loaded config</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Loading a configuration while an image is open keeps the image's size, bit depth and Bayer
+pattern. Invalid YAML files are rejected with a message naming the wrong field, for example
+<code>modules.awb.r_gain: Input should be less than or equal to 8</code>.</p>
+<p>The app remembers the last configuration, recent files, folders and window layout between
+sessions.</p>
+<h2 id="exporting">Exporting<a class="headerlink" href="#exporting" title="Permanent link">&para;</a></h2>
+<p>Click <strong>Export…</strong> in the status bar, or use <strong>File → Export…</strong> (<span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-e">E</kbd></span>):</p>
+<ul>
+<li><strong>Format</strong>: PNG or JPEG. The file extension follows the format.</li>
+<li><strong>JPEG quality</strong>: 50–100 (default 95). JPEGs are saved without chroma subsampling (4:4:4).</li>
+<li><strong>Save the configuration alongside</strong>: also writes <code>&lt;name&gt;.yaml</code> next to the image, so you
+  can reproduce the result later.</li>
+</ul>
+<p>The image is processed again at <strong>full resolution</strong> before saving. A progress dialog shows
+the current module and can be cancelled.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.top", "content.code.copy", "search.highlight"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

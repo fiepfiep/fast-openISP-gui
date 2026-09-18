@@ -1,0 +1,30 @@
+# Lint, type check, test and build the Windows exe.
+name: ci
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    env:
+      QT_QPA_PLATFORM: offscreen
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - run: uv sync --frozen
+      - run: uv run ruff format --check
+      - run: uv run ruff check
+      - run: uv run ty check
+      - run: uv run pytest tests/test_regression.py
+      - run: uv run mkdocs build --strict
+      - name: Build exe
+        shell: pwsh
+        run: .\scripts\build_exe.ps1
+      - uses: actions/upload-artifact@v4
+        with:
+          name: fast-openISP-exe
+          path: dist/fast-openISP.exe

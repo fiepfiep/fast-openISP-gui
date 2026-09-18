@@ -1,0 +1,4114 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A fast software image signal processor with a desktop GUI">
+      
+      
+      
+      
+        <link rel="prev" href="../building/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>API reference - fast-openISP</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#api-reference" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="fast-openISP" class="md-header__button md-logo" aria-label="fast-openISP" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            fast-openISP
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              API reference
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/QiuJueqin/fast-openISP" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="fast-openISP" class="md-nav__button md-logo" aria-label="fast-openISP" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    fast-openISP
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/QiuJueqin/fast-openISP" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gui/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The GUI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../inputs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Input formats
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration files
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ISP modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command line
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Development
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Developer guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../building/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Building the Windows exe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API reference
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fast_openisp.config" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        config
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="config">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.config.MODULE_INFO" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MODULE_INFO
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.config.IspConfig" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IspConfig
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="IspConfig">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.config.IspConfig.missing_dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        missing_dependencies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.config.IspConfig.with_module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        with_module
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.config.HardwareConfig" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HardwareConfig
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.config.ModulesConfig" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ModulesConfig
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.config.ModuleParams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ModuleParams
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.config.ModuleInfo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ModuleInfo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.config.ConfigError" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ConfigError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.config.load_config" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        load_config
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.config.save_config" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        save_config
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.config.bundled_configs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bundled_configs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.config.resolve_enabled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        resolve_enabled
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fast_openisp.pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pipeline
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="pipeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.pipeline.PipelineError" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PipelineError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.pipeline.PipelineCancelled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PipelineCancelled
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.pipeline.PipelineResult" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PipelineResult
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PipelineResult">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.pipeline.PipelineResult.image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        image
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.pipeline.PipelineResult.awb_gains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        awb_gains
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.pipeline.PipelineResult.timings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        timings
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.pipeline.Pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pipeline
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pipeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.pipeline.Pipeline.execute" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        execute
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.pipeline.compute_saturation_values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        compute_saturation_values
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.pipeline.render_output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        render_output
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loading-and-exporting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Loading and exporting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fast_openisp.io.loaders" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        loaders
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="loaders">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.io.loaders.LoadError" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LoadError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.io.loaders.RawImage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RawImage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RawImage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.io.loaders.RawImage.bayer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bayer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.io.loaders.RawImage.black_level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        black_level
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.io.loaders.RawImage.as_shot_wb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        as_shot_wb
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.io.loaders.TiffInfo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TiffInfo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="TiffInfo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.io.loaders.TiffInfo.bit_depth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bit_depth
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.io.loaders.infer_bit_depth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        infer_bit_depth
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.io.loaders.raw_size_candidates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        raw_size_candidates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.io.loaders.load_raw" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        load_raw
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.io.loaders.probe_tiff" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        probe_tiff
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.io.loaders.load_tiff" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        load_tiff
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.io.loaders.bayer_pattern_from_cfa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bayer_pattern_from_cfa
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.io.loaders.load_dng" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        load_dng
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.io.loaders.load_image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        load_image
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fast_openisp.io.export" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        export
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="export">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.io.export.ExportError" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ExportError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.io.export.encode_image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        encode_image
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.io.export.save_image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        save_image
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#imaging-utilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Imaging utilities
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fast_openisp.imaging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        imaging
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="imaging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.imaging.ycbcr_to_rgb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ycbcr_to_rgb
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.imaging.preview_factor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        preview_factor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.imaging.downscale_bayer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        downscale_bayer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.imaging.render_before" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        render_before
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#module-base-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Module base classes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fast_openisp.modules.base" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        base
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="base">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.modules.base.PipelineError" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PipelineError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.modules.base.SaturationValues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SaturationValues
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.modules.base.Context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Context
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.modules.base.PipelineData" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PipelineData
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PipelineData">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.modules.base.PipelineData.awb_gains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        awb_gains
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.modules.base.ISPModule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ISPModule
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ISPModule">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.modules.base.ISPModule.execute" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        execute
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.modules.base.to_fixed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        to_fixed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fast_openisp.config" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        config
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="config">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.config.MODULE_INFO" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MODULE_INFO
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.config.IspConfig" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IspConfig
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="IspConfig">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.config.IspConfig.missing_dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        missing_dependencies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.config.IspConfig.with_module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        with_module
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.config.HardwareConfig" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HardwareConfig
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.config.ModulesConfig" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ModulesConfig
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.config.ModuleParams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ModuleParams
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.config.ModuleInfo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ModuleInfo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.config.ConfigError" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ConfigError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.config.load_config" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        load_config
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.config.save_config" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        save_config
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.config.bundled_configs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bundled_configs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.config.resolve_enabled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        resolve_enabled
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fast_openisp.pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pipeline
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="pipeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.pipeline.PipelineError" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PipelineError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.pipeline.PipelineCancelled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PipelineCancelled
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.pipeline.PipelineResult" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PipelineResult
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PipelineResult">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.pipeline.PipelineResult.image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        image
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.pipeline.PipelineResult.awb_gains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        awb_gains
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.pipeline.PipelineResult.timings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        timings
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.pipeline.Pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pipeline
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pipeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.pipeline.Pipeline.execute" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        execute
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.pipeline.compute_saturation_values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        compute_saturation_values
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.pipeline.render_output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        render_output
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loading-and-exporting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Loading and exporting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fast_openisp.io.loaders" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        loaders
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="loaders">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.io.loaders.LoadError" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LoadError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.io.loaders.RawImage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RawImage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RawImage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.io.loaders.RawImage.bayer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bayer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.io.loaders.RawImage.black_level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        black_level
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.io.loaders.RawImage.as_shot_wb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        as_shot_wb
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.io.loaders.TiffInfo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TiffInfo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="TiffInfo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.io.loaders.TiffInfo.bit_depth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bit_depth
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.io.loaders.infer_bit_depth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        infer_bit_depth
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.io.loaders.raw_size_candidates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        raw_size_candidates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.io.loaders.load_raw" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        load_raw
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.io.loaders.probe_tiff" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        probe_tiff
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.io.loaders.load_tiff" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        load_tiff
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.io.loaders.bayer_pattern_from_cfa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bayer_pattern_from_cfa
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.io.loaders.load_dng" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        load_dng
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.io.loaders.load_image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        load_image
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fast_openisp.io.export" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        export
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="export">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.io.export.ExportError" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ExportError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.io.export.encode_image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        encode_image
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.io.export.save_image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        save_image
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#imaging-utilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Imaging utilities
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fast_openisp.imaging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        imaging
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="imaging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.imaging.ycbcr_to_rgb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ycbcr_to_rgb
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.imaging.preview_factor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        preview_factor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.imaging.downscale_bayer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        downscale_bayer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.imaging.render_before" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        render_before
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#module-base-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Module base classes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fast_openisp.modules.base" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        base
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="base">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.modules.base.PipelineError" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PipelineError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.modules.base.SaturationValues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SaturationValues
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.modules.base.Context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Context
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.modules.base.PipelineData" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PipelineData
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PipelineData">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.modules.base.PipelineData.awb_gains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        awb_gains
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.modules.base.ISPModule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ISPModule
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ISPModule">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.modules.base.ISPModule.execute" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        execute
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast_openisp.modules.base.to_fixed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        to_fixed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="api-reference">API reference<a class="headerlink" href="#api-reference" title="Permanent link">&para;</a></h1>
+<p>Minimal example:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fast_openisp.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">bundled_configs</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fast_openisp.io.export</span><span class="w"> </span><span class="kn">import</span> <span class="n">save_image</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fast_openisp.io.loaders</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_tiff</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fast_openisp.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pipeline</span>
+
+<span class="n">config</span> <span class="o">=</span> <span class="n">bundled_configs</span><span class="p">()[</span><span class="s2">"mikros110"</span><span class="p">]</span>
+<span class="n">raw</span> <span class="o">=</span> <span class="n">load_tiff</span><span class="p">(</span><span class="s2">"raw/mikros110.tiff"</span><span class="p">,</span> <span class="n">bayer_pattern</span><span class="o">=</span><span class="s2">"bggr"</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">raw</span><span class="o">.</span><span class="n">bayer</span><span class="p">)</span>
+<span class="n">save_image</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">image</span><span class="p">,</span> <span class="s2">"mikros110.png"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">awb_gains</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">timings</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
+
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="fast_openisp.config" class="doc doc-heading">
+            <code>fast_openisp.config</code>
+
+
+<a href="#fast_openisp.config" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents first">
+
+        <p>Typed ISP configuration, validated with Pydantic.</p>
+<p>A configuration consists of the sensor <code>hardware</code> description and one entry per ISP
+module (in fixed pipeline order). Every module entry carries an <code>enabled</code> flag plus the
+module's parameters. Fixed-point parameters of the original openISP (<code>×1024</code> / <code>×256</code>)
+are expressed as real numbers here; modules convert them to fixed point internally.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="fast_openisp.config.MODULE_INFO" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">MODULE_INFO</span> <span class="o">=</span> <span class="p">{</span><span class="n">info</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">info</span> <span class="k">for</span> <span class="n">info</span> <span class="ow">in</span> <span class="p">(</span><span class="n">ModuleInfo</span><span class="p">(</span><span class="s1">'dpc'</span><span class="p">,</span> <span class="s1">'Dead Pixel Correction'</span><span class="p">),</span> <span class="n">ModuleInfo</span><span class="p">(</span><span class="s1">'blc'</span><span class="p">,</span> <span class="s1">'Black Level Compensation'</span><span class="p">),</span> <span class="n">ModuleInfo</span><span class="p">(</span><span class="s1">'aaf'</span><span class="p">,</span> <span class="s1">'Anti-Aliasing Filter'</span><span class="p">),</span> <span class="n">ModuleInfo</span><span class="p">(</span><span class="s1">'awb'</span><span class="p">,</span> <span class="s1">'Auto White Balance'</span><span class="p">),</span> <span class="n">ModuleInfo</span><span class="p">(</span><span class="s1">'cnf'</span><span class="p">,</span> <span class="s1">'Chroma Noise Filter'</span><span class="p">),</span> <span class="n">ModuleInfo</span><span class="p">(</span><span class="s1">'cfa'</span><span class="p">,</span> <span class="s1">'Demosaicing (CFA interpolation)'</span><span class="p">),</span> <span class="n">ModuleInfo</span><span class="p">(</span><span class="s1">'ccm'</span><span class="p">,</span> <span class="s1">'Color Correction Matrix'</span><span class="p">,</span> <span class="p">(</span><span class="s1">'cfa'</span><span class="p">,)),</span> <span class="n">ModuleInfo</span><span class="p">(</span><span class="s1">'gac'</span><span class="p">,</span> <span class="s1">'Gamma Correction'</span><span class="p">,</span> <span class="p">(</span><span class="s1">'cfa'</span><span class="p">,)),</span> <span class="n">ModuleInfo</span><span class="p">(</span><span class="s1">'csc'</span><span class="p">,</span> <span class="s1">'Color Space Conversion'</span><span class="p">,</span> <span class="p">(</span><span class="s1">'gac'</span><span class="p">,)),</span> <span class="n">ModuleInfo</span><span class="p">(</span><span class="s1">'nlm'</span><span class="p">,</span> <span class="s1">'Non-Local Means Denoising'</span><span class="p">,</span> <span class="p">(</span><span class="s1">'csc'</span><span class="p">,)),</span> <span class="n">ModuleInfo</span><span class="p">(</span><span class="s1">'bnf'</span><span class="p">,</span> <span class="s1">'Bilateral Noise Filter'</span><span class="p">,</span> <span class="p">(</span><span class="s1">'csc'</span><span class="p">,)),</span> <span class="n">ModuleInfo</span><span class="p">(</span><span class="s1">'ceh'</span><span class="p">,</span> <span class="s1">'Contrast Enhancement (CLAHE)'</span><span class="p">,</span> <span class="p">(</span><span class="s1">'csc'</span><span class="p">,)),</span> <span class="n">ModuleInfo</span><span class="p">(</span><span class="s1">'eeh'</span><span class="p">,</span> <span class="s1">'Edge Enhancement'</span><span class="p">,</span> <span class="p">(</span><span class="s1">'csc'</span><span class="p">,)),</span> <span class="n">ModuleInfo</span><span class="p">(</span><span class="s1">'fcs'</span><span class="p">,</span> <span class="s1">'False Color Suppression'</span><span class="p">,</span> <span class="p">(</span><span class="s1">'csc'</span><span class="p">,</span> <span class="s1">'eeh'</span><span class="p">)),</span> <span class="n">ModuleInfo</span><span class="p">(</span><span class="s1">'hsc'</span><span class="p">,</span> <span class="s1">'Hue / Saturation Control'</span><span class="p">,</span> <span class="p">(</span><span class="s1">'csc'</span><span class="p">,)),</span> <span class="n">ModuleInfo</span><span class="p">(</span><span class="s1">'bcc'</span><span class="p">,</span> <span class="s1">'Brightness / Contrast Control'</span><span class="p">,</span> <span class="p">(</span><span class="s1">'csc'</span><span class="p">,)),</span> <span class="n">ModuleInfo</span><span class="p">(</span><span class="s1">'scl'</span><span class="p">,</span> <span class="s1">'Scaler'</span><span class="p">,</span> <span class="p">(</span><span class="s1">'cfa'</span><span class="p">,)))}</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-module-attribute"><code>module-attribute</code></small>
+  </span>
+
+<a href="#fast_openisp.config.MODULE_INFO" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+    </div>
+
+</div>
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="fast_openisp.config.IspConfig" class="doc doc-heading">
+            <code>IspConfig</code>
+
+
+<a href="#fast_openisp.config.IspConfig" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="fast_openisp.config._Model">_Model</span></code></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="fast_openisp.config.IspConfig.missing_dependencies" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">missing_dependencies</span><span class="p">()</span></code>
+
+<a href="#fast_openisp.config.IspConfig.missing_dependencies" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Return <code>(module, missing_prerequisite)</code> pairs for enabled modules.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="fast_openisp.config.IspConfig.with_module" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">with_module</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span></code>
+
+<a href="#fast_openisp.config.IspConfig.with_module" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Return a copy with one module's parameters replaced.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="fast_openisp.config.HardwareConfig" class="doc doc-heading">
+            <code>HardwareConfig</code>
+
+
+<a href="#fast_openisp.config.HardwareConfig" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="fast_openisp.config._Model">_Model</span></code></p>
+
+
+
+        <p>Sensor description. <code>width</code>/<code>height</code> are only used to read headerless raw files.</p>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="fast_openisp.config.ModulesConfig" class="doc doc-heading">
+            <code>ModulesConfig</code>
+
+
+<a href="#fast_openisp.config.ModulesConfig" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="fast_openisp.config._Model">_Model</span></code></p>
+
+
+
+        <p>All ISP modules in pipeline order (field order is the execution order).</p>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="fast_openisp.config.ModuleParams" class="doc doc-heading">
+            <code>ModuleParams</code>
+
+
+<a href="#fast_openisp.config.ModuleParams" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="fast_openisp.config._Model">_Model</span></code></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="fast_openisp.config.ModuleInfo" class="doc doc-heading">
+            <code>ModuleInfo</code>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-dataclass"><code>dataclass</code></small>
+  </span>
+
+<a href="#fast_openisp.config.ModuleInfo" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="fast_openisp.config.ConfigError" class="doc doc-heading">
+            <code>ConfigError</code>
+
+
+<a href="#fast_openisp.config.ConfigError" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="ValueError">ValueError</span></code></p>
+
+
+
+        <p>Raised when a configuration cannot be loaded or is inconsistent.</p>
+
+
+
+
+
+
+
+
+
+    </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="fast_openisp.config.load_config" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">load_config</span><span class="p">(</span><span class="n">source</span><span class="p">)</span></code>
+
+<a href="#fast_openisp.config.load_config" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Load and validate a YAML configuration file.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="fast_openisp.config.save_config" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">save_config</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span></code>
+
+<a href="#fast_openisp.config.save_config" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="fast_openisp.config.bundled_configs" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">bundled_configs</span><span class="p">()</span></code>
+
+<a href="#fast_openisp.config.bundled_configs" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Configurations shipped with the package, keyed by file stem.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="fast_openisp.config.resolve_enabled" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">resolve_enabled</span><span class="p">(</span><span class="n">requested</span><span class="p">)</span></code>
+
+<a href="#fast_openisp.config.resolve_enabled" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Apply module dependencies: a module is effectively enabled only when it is requested
+and all its (transitive) prerequisites are effectively enabled.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div><h2 id="pipeline">Pipeline<a class="headerlink" href="#pipeline" title="Permanent link">&para;</a></h2>
+
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="fast_openisp.pipeline" class="doc doc-heading">
+            <code>fast_openisp.pipeline</code>
+
+
+<a href="#fast_openisp.pipeline" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents first">
+
+        <p>The fast-openISP pipeline: runs the enabled modules in order on a Bayer array.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="fast_openisp.pipeline.PipelineError" class="doc doc-heading">
+            <code>PipelineError</code>
+
+
+<a href="#fast_openisp.pipeline.PipelineError" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="RuntimeError">RuntimeError</span></code></p>
+
+
+
+        <p>Raised when a module cannot process the current data.</p>
+
+
+
+
+
+
+
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="fast_openisp.pipeline.PipelineCancelled" class="doc doc-heading">
+            <code>PipelineCancelled</code>
+
+
+<a href="#fast_openisp.pipeline.PipelineCancelled" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="Exception">Exception</span></code></p>
+
+
+
+        <p>Raised when a run is cancelled between modules.</p>
+
+
+
+
+
+
+
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="fast_openisp.pipeline.PipelineResult" class="doc doc-heading">
+            <code>PipelineResult</code>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-dataclass"><code>dataclass</code></small>
+  </span>
+
+<a href="#fast_openisp.pipeline.PipelineResult" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="fast_openisp.pipeline.PipelineResult.image" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">image</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+<a href="#fast_openisp.pipeline.PipelineResult.image" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Displayable RGB result, <code>(H, W, 3)</code> uint8 (or <code>(H, W)</code> when CFA is disabled).</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="fast_openisp.pipeline.PipelineResult.awb_gains" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">awb_gains</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+<a href="#fast_openisp.pipeline.PipelineResult.awb_gains" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>White-balance gains (R, Gr, Gb, B) that AWB applied.</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="fast_openisp.pipeline.PipelineResult.timings" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">timings</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+<a href="#fast_openisp.pipeline.PipelineResult.timings" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Seconds spent per module.</p>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="fast_openisp.pipeline.Pipeline" class="doc doc-heading">
+            <code>Pipeline</code>
+
+
+<a href="#fast_openisp.pipeline.Pipeline" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+
+
+        <p>Core fast-openISP pipeline built from an :class:<code>IspConfig</code>.</p>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="fast_openisp.pipeline.Pipeline.execute" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">execute</span><span class="p">(</span><span class="n">bayer</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">progress</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cancel</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+<a href="#fast_openisp.pipeline.Pipeline.execute" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Run all enabled modules on <code>bayer</code> (<code>(H, W)</code> integer array, even dimensions).</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="fast_openisp.pipeline.compute_saturation_values" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">compute_saturation_values</span><span class="p">(</span><span class="n">config</span><span class="p">)</span></code>
+
+<a href="#fast_openisp.pipeline.compute_saturation_values" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Saturation pixel values in the pipeline stages.</p>
+<p>Raw: before BLC. HDR: after BLC, before gamma. SDR: after gamma.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="fast_openisp.pipeline.render_output" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">render_output</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">saturation</span><span class="p">)</span></code>
+
+<a href="#fast_openisp.pipeline.render_output" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Convert the pipeline's final data to a displayable uint8 image.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div><h2 id="loading-and-exporting">Loading and exporting<a class="headerlink" href="#loading-and-exporting" title="Permanent link">&para;</a></h2>
+
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="fast_openisp.io.loaders" class="doc doc-heading">
+            <code>fast_openisp.io.loaders</code>
+
+
+<a href="#fast_openisp.io.loaders" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents first">
+
+        <p>Loaders for headerless raw, single-channel Bayer TIFF and DNG files.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="fast_openisp.io.loaders.LoadError" class="doc doc-heading">
+            <code>LoadError</code>
+
+
+<a href="#fast_openisp.io.loaders.LoadError" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="ValueError">ValueError</span></code></p>
+
+
+
+        <p>Raised when an input file cannot be read as a Bayer image.</p>
+
+
+
+
+
+
+
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="fast_openisp.io.loaders.RawImage" class="doc doc-heading">
+            <code>RawImage</code>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-dataclass"><code>dataclass</code></small>
+  </span>
+
+<a href="#fast_openisp.io.loaders.RawImage" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="fast_openisp.io.loaders.RawImage.bayer" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">bayer</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+<a href="#fast_openisp.io.loaders.RawImage.bayer" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>(H, W) uint16 Bayer mosaic with even dimensions, LSB-aligned.</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="fast_openisp.io.loaders.RawImage.black_level" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">black_level</span> <span class="o">=</span> <span class="kc">None</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+<a href="#fast_openisp.io.loaders.RawImage.black_level" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Per-channel (R, Gr, Gb, B) black level, when known from the file (DNG).</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="fast_openisp.io.loaders.RawImage.as_shot_wb" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">as_shot_wb</span> <span class="o">=</span> <span class="kc">None</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+<a href="#fast_openisp.io.loaders.RawImage.as_shot_wb" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>As-shot white-balance gains (R, Gr, Gb, B) normalised to green (DNG).</p>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="fast_openisp.io.loaders.TiffInfo" class="doc doc-heading">
+            <code>TiffInfo</code>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-dataclass"><code>dataclass</code></small>
+  </span>
+
+<a href="#fast_openisp.io.loaders.TiffInfo" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="fast_openisp.io.loaders.TiffInfo.bit_depth" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">bit_depth</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+<a href="#fast_openisp.io.loaders.TiffInfo.bit_depth" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Bit depth inferred from the data (after undoing MSB alignment).</p>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="fast_openisp.io.loaders.infer_bit_depth" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">infer_bit_depth</span><span class="p">(</span><span class="n">bayer</span><span class="p">)</span></code>
+
+<a href="#fast_openisp.io.loaders.infer_bit_depth" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Smallest bit depth (8–16) that can hold the largest value of <code>bayer</code>.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="fast_openisp.io.loaders.raw_size_candidates" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">raw_size_candidates</span><span class="p">(</span><span class="n">file_size</span><span class="p">,</span> <span class="n">bytes_per_pixel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span></code>
+
+<a href="#fast_openisp.io.loaders.raw_size_candidates" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Common (width, height) resolutions matching a headerless raw file size.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="fast_openisp.io.loaders.load_raw" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">load_raw</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">bit_depth</span><span class="p">,</span> <span class="n">bayer_pattern</span><span class="p">,</span> <span class="n">byte_order</span><span class="o">=</span><span class="s1">'little'</span><span class="p">)</span></code>
+
+<a href="#fast_openisp.io.loaders.load_raw" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Read a headerless 16-bit-per-pixel raw file.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="fast_openisp.io.loaders.probe_tiff" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">probe_tiff</span><span class="p">(</span><span class="n">path</span><span class="p">)</span></code>
+
+<a href="#fast_openisp.io.loaders.probe_tiff" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Inspect a TIFF file without committing to a Bayer pattern.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="fast_openisp.io.loaders.load_tiff" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">load_tiff</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">bayer_pattern</span><span class="p">,</span> <span class="n">bit_depth</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+<a href="#fast_openisp.io.loaders.load_tiff" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Read a single-channel Bayer TIFF.</p>
+<p>MSB-aligned data (all values a multiple of 4 or more) is shifted down. The bit depth is
+inferred from the data unless given.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="fast_openisp.io.loaders.bayer_pattern_from_cfa" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">bayer_pattern_from_cfa</span><span class="p">(</span><span class="n">raw_pattern</span><span class="p">,</span> <span class="n">color_desc</span><span class="p">)</span></code>
+
+<a href="#fast_openisp.io.loaders.bayer_pattern_from_cfa" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Map a LibRaw 2×2 CFA pattern (indices into <code>color_desc</code>, e.g. <code>"RGBG"</code>) to a name.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="fast_openisp.io.loaders.load_dng" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">load_dng</span><span class="p">(</span><span class="n">path</span><span class="p">)</span></code>
+
+<a href="#fast_openisp.io.loaders.load_dng" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Read a Bayer DNG (or other LibRaw-supported raw) with its metadata.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="fast_openisp.io.loaders.load_image" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">load_image</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">bit_depth</span><span class="p">,</span> <span class="n">bayer_pattern</span><span class="p">,</span> <span class="n">byte_order</span><span class="o">=</span><span class="s1">'little'</span><span class="p">)</span></code>
+
+<a href="#fast_openisp.io.loaders.load_image" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Load any supported format. Metadata arguments are ignored where the file provides it.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="fast_openisp.io.export" class="doc doc-heading">
+            <code>fast_openisp.io.export</code>
+
+
+<a href="#fast_openisp.io.export" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents first">
+
+        <p>Writers for PNG and JPEG output.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="fast_openisp.io.export.ExportError" class="doc doc-heading">
+            <code>ExportError</code>
+
+
+<a href="#fast_openisp.io.export.ExportError" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="ValueError">ValueError</span></code></p>
+
+
+
+        <p>Raised when an image cannot be written.</p>
+
+
+
+
+
+
+
+
+
+    </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="fast_openisp.io.export.encode_image" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">encode_image</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">suffix</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">jpeg_quality</span><span class="o">=</span><span class="mi">95</span><span class="p">)</span></code>
+
+<a href="#fast_openisp.io.export.encode_image" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Encode an RGB (or greyscale) uint8 image as PNG or JPEG bytes.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="fast_openisp.io.export.save_image" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">save_image</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">jpeg_quality</span><span class="o">=</span><span class="mi">95</span><span class="p">)</span></code>
+
+<a href="#fast_openisp.io.export.save_image" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Write <code>image</code> to <code>path</code>; the format follows the file extension.</p>
+<p>Uses <code>imencode</code> + <code>write_bytes</code> so non-ASCII Windows paths work.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div><h2 id="imaging-utilities">Imaging utilities<a class="headerlink" href="#imaging-utilities" title="Permanent link">&para;</a></h2>
+
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="fast_openisp.imaging" class="doc doc-heading">
+            <code>fast_openisp.imaging</code>
+
+
+<a href="#fast_openisp.imaging" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents first">
+
+        <p>Image utilities: color conversion, CFA-preserving downscaling and the "before" rendering.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="fast_openisp.imaging.ycbcr_to_rgb" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">ycbcr_to_rgb</span><span class="p">(</span><span class="n">ycbcr_array</span><span class="p">)</span></code>
+
+<a href="#fast_openisp.imaging.ycbcr_to_rgb" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Convert a uint8 YCbCr (BT.601 limited range) image to uint8 RGB.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="fast_openisp.imaging.preview_factor" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">preview_factor</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">max_edge</span><span class="o">=</span><span class="n">DEFAULT_PREVIEW_MAX_EDGE</span><span class="p">)</span></code>
+
+<a href="#fast_openisp.imaging.preview_factor" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Smallest integer downscale factor so the longest edge is at most <code>max_edge</code>.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="fast_openisp.imaging.downscale_bayer" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">downscale_bayer</span><span class="p">(</span><span class="n">bayer</span><span class="p">,</span> <span class="n">factor</span><span class="p">,</span> <span class="n">pattern</span><span class="p">)</span></code>
+
+<a href="#fast_openisp.imaging.downscale_bayer" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Downscale a Bayer array by an integer factor, keeping its CFA layout.</p>
+<p>Each color plane is block-averaged over <code>factor × factor</code> blocks and re-mosaicked, so
+per-channel means (and thus grey-world white balance) are preserved.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="fast_openisp.imaging.render_before" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">render_before</span><span class="p">(</span><span class="n">bayer</span><span class="p">,</span> <span class="n">bit_depth</span><span class="p">,</span> <span class="n">pattern</span><span class="p">)</span></code>
+
+<a href="#fast_openisp.imaging.render_before" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Quick reference rendering of the unprocessed input.</p>
+<p>Linear scaling to 8 bit, half-resolution demosaic upsampled to full size, and a 1/2.2
+display gamma. No black level, white balance or color correction.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div><h2 id="module-base-classes">Module base classes<a class="headerlink" href="#module-base-classes" title="Permanent link">&para;</a></h2>
+
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="fast_openisp.modules.base" class="doc doc-heading">
+            <code>fast_openisp.modules.base</code>
+
+
+<a href="#fast_openisp.modules.base" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents first">
+
+        <p>Base class and shared data structures for ISP modules.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="fast_openisp.modules.base.PipelineError" class="doc doc-heading">
+            <code>PipelineError</code>
+
+
+<a href="#fast_openisp.modules.base.PipelineError" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="RuntimeError">RuntimeError</span></code></p>
+
+
+
+        <p>Raised when a module cannot process the current data.</p>
+
+
+
+
+
+
+
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="fast_openisp.modules.base.SaturationValues" class="doc doc-heading">
+            <code>SaturationValues</code>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-dataclass"><code>dataclass</code></small>
+  </span>
+
+<a href="#fast_openisp.modules.base.SaturationValues" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+
+
+        <p>Maximum pixel values in the raw, HDR (after BLC) and SDR (after gamma) domains.</p>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="fast_openisp.modules.base.Context" class="doc doc-heading">
+            <code>Context</code>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-dataclass"><code>dataclass</code></small>
+  </span>
+
+<a href="#fast_openisp.modules.base.Context" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+
+
+        <p>Per-run information shared by all modules.</p>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="fast_openisp.modules.base.PipelineData" class="doc doc-heading">
+            <code>PipelineData</code>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-dataclass"><code>dataclass</code></small>
+  </span>
+
+<a href="#fast_openisp.modules.base.PipelineData" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+
+
+        <p>Data flowing through the pipeline. Modules modify it in place.</p>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="fast_openisp.modules.base.PipelineData.awb_gains" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">awb_gains</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+<a href="#fast_openisp.modules.base.PipelineData.awb_gains" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Effective white-balance gains (R, Gr, Gb, B) applied by AWB in this run.</p>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="fast_openisp.modules.base.ISPModule" class="doc doc-heading">
+            <code>ISPModule</code>
+
+
+<a href="#fast_openisp.modules.base.ISPModule" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="abc.ABC">ABC</span></code></p>
+
+
+
+        <p>An ISP stage. Subclasses implement :meth:<code>execute</code>.</p>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="fast_openisp.modules.base.ISPModule.execute" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">execute</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-abstractmethod"><code>abstractmethod</code></small>
+  </span>
+
+<a href="#fast_openisp.modules.base.ISPModule.execute" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Process <code>data</code> in place.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="fast_openisp.modules.base.to_fixed" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">to_fixed</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">scale</span><span class="p">)</span></code>
+
+<a href="#fast_openisp.modules.base.to_fixed" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Convert a real-valued parameter to the fixed-point integer used by the hardware model.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.top", "content.code.copy", "search.highlight"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
